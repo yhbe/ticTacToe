@@ -11,7 +11,7 @@ const player2 = playerFactory("P2", "O");
 let activePlayer = player1;
 
 const gameBoard = (() => {
-  const scoreBoard = Array(9).fill("?");
+  let scoreBoard = Array(9).fill("?");
   const container = document.querySelector(".container");
 
   const renderBoard = () => {
@@ -98,7 +98,15 @@ const gameBoard = (() => {
     }
   };
 
-  return { scoreBoard, renderBoard };
+  const resetBoard = () => {
+    scoreBoard = Array(9).fill("?");
+    renderBoard();
+  };
+
+  return { scoreBoard, renderBoard, resetBoard };
 })();
 
 gameBoard.renderBoard();
+
+const resetBoardButton = document.querySelector("#resetButton");
+resetBoardButton.addEventListener("click", gameBoard.resetBoard);
