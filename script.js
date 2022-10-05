@@ -7,6 +7,7 @@ const playerFactory = (name, symbol) => {
 
 const player1 = playerFactory("P1", "X");
 const player2 = playerFactory("P2", "O");
+
 let activePlayer = player1;
 
 const gameBoard = (() => {
@@ -31,6 +32,7 @@ const gameBoard = (() => {
     if (this.innerHTML == "?") {
       scoreBoard[id] = activePlayer.symbol;
       renderBoard();
+      checkforWinner();
       updatePlayer();
     } else return;
   }
@@ -39,6 +41,26 @@ const gameBoard = (() => {
     if (activePlayer == player1) {
       activePlayer = player2;
     } else activePlayer = player1;
+  };
+
+  const checkforWinner = () => {
+    let winner = activePlayer.name;
+    let winnerSymbol = activePlayer.symbol;
+    if (scoreBoard[0] && scoreBoard[1] && scoreBoard[2] === winnerSymbol) {
+      alert(`${winner} wins!!`);
+    } else if (
+      scoreBoard[0] &&
+      scoreBoard[3] &&
+      scoreBoard[6] == winnerSymbol
+    ) {
+      alert(`${winner} wins!!`);
+    } else if (
+      scoreBoard[0] &&
+      scoreBoard[4] &&
+      scoreBoard[8] == winnerSymbol
+    ) {
+      alert(`${winner} wins!!`);
+    }
   };
 
   return { scoreBoard, renderBoard };
