@@ -3,9 +3,11 @@
   box-sizing: border-box;
 }
 
+
 .header{
   width: max-content;
   margin: auto;
+  height: 260px;
 }
 
 .header > h1{
@@ -17,9 +19,14 @@
   margin: auto;
 }
 
-.header > button{
+.header > div > button{
   display: flex;
   margin: auto;
+  margin-bottom: 3px;
+  border: none;
+  color: white;
+  font-size: 18px;
+  background-color: black;
 }
 
 .container{
