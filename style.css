@@ -1,4 +1,10 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .container{
+  width: 400px;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3,125px);
+  font-size: 65px;
 }
