@@ -1,5 +1,11 @@
 *{
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.header{
+  width: max-content;
+  margin: auto;
 }
 .container{
   width: 400px;
@@ -7,4 +13,16 @@
   display: grid;
   grid-template-columns: repeat(3,125px);
   font-size: 65px;
+  justify-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  /* border: 1px solid black; */
+}
+
+.square{
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding: 0px 30px;
+  border: 1px solid black;
 }

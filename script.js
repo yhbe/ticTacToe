@@ -20,6 +20,7 @@ const gameBoard = (() => {
     }
     scoreBoard.forEach((score, i) => {
       let div = document.createElement("div");
+      div.classList.add("square");
       div.innerHTML = score;
       div.setAttribute("data-id", i);
       div.addEventListener("click", updateBoard);
