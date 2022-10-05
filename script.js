@@ -28,9 +28,11 @@ const gameBoard = (() => {
 
   function updateBoard() {
     const id = this.getAttribute("data-id");
-    scoreBoard[id] = activePlayer.symbol;
-    renderBoard();
-    updatePlayer();
+    if (this.innerHTML == "?") {
+      scoreBoard[id] = activePlayer.symbol;
+      renderBoard();
+      updatePlayer();
+    } else return;
   }
 
   const updatePlayer = () => {
