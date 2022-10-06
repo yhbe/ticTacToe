@@ -112,10 +112,16 @@ const resetBoardButton = document.querySelector("#resetButton");
 resetBoardButton.addEventListener("click", gameBoard.resetBoard);
 
 const form = document.querySelector("form");
+const modal = document.querySelector(".modal");
 form.addEventListener("submit", () => {
-  const modal = document.querySelector(".modal");
-  modal.setAttribute("display", "block");
+  modal.classList.add("hidden");
 });
-form.onsubmit = () => {
+form.onsubmit = (event) => {
   event.preventDefault();
 };
+
+const addButton = document.querySelector("#addNamesButton");
+const addPlayers = () => {
+  modal.classList.remove("hidden");
+};
+addButton.addEventListener("click", addPlayers);
