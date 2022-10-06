@@ -99,6 +99,8 @@ const gameBoard = (() => {
       scoreBoard[8] === winnerSymbol
     ) {
       winnersText.innerHTML = `${winner} wins!`;
+    } else if (scoreBoard.every((score) => score !== "?")) {
+      winnersText.innerHTML = `Its a draw!`;
     }
   };
 
