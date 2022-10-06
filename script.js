@@ -63,6 +63,7 @@ const gameBoard = (() => {
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[2] === winnerSymbol
     ) {
+      winningSpaces(0, 1, 2);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -71,6 +72,7 @@ const gameBoard = (() => {
       scoreBoard[3] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
+      winningSpaces(0, 3, 6);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -79,6 +81,7 @@ const gameBoard = (() => {
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
+      winningSpaces(0, 4, 8);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -87,6 +90,7 @@ const gameBoard = (() => {
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[7] === winnerSymbol
     ) {
+      winningSpaces(1, 4, 7);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -95,6 +99,7 @@ const gameBoard = (() => {
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
+      winningSpaces(2, 4, 6);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -103,6 +108,7 @@ const gameBoard = (() => {
       scoreBoard[5] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
+      winningSpaces(2, 5, 8);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -111,6 +117,7 @@ const gameBoard = (() => {
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[5] === winnerSymbol
     ) {
+      winningSpaces(3, 4, 5);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -119,6 +126,7 @@ const gameBoard = (() => {
       scoreBoard[7] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
+      winningSpaces(6, 7, 8);
       container.classList.add("unavailable"),
         whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
@@ -136,6 +144,12 @@ const gameBoard = (() => {
     container.classList.remove("unavailable");
     whosTurnText.innerHTML = `${activePlayer.name}'s turn`;
     renderBoard();
+  };
+
+  const winningSpaces = (a, b, c) => {
+    let Array = [a, b, c];
+    const div = document.querySelectorAll(".square");
+    Array.forEach((winner) => (div[winner].style.color = "red"));
   };
 
   return { scoreBoard, renderBoard, resetBoard };
