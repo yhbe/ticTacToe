@@ -100,7 +100,7 @@ const gameBoard = (() => {
     ) {
       winnersText.innerHTML = `${winner} wins!`;
     } else if (scoreBoard.every((score) => score !== "?")) {
-      winnersText.innerHTML = `Its a draw!`;
+      winnersText.innerHTML = `It's a draw!`;
     }
   };
 
