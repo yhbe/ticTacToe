@@ -110,3 +110,12 @@ gameBoard.renderBoard();
 
 const resetBoardButton = document.querySelector("#resetButton");
 resetBoardButton.addEventListener("click", gameBoard.resetBoard);
+
+const form = document.querySelector("form");
+form.addEventListener("submit", () => {
+  const modal = document.querySelector(".modal");
+  modal.setAttribute("display", "block");
+});
+form.onsubmit = () => {
+  event.preventDefault();
+};
