@@ -16,6 +16,7 @@ let activePlayer = player1;
 const gameBoard = (() => {
   let scoreBoard = Array(9).fill("?");
   const container = document.querySelector(".container");
+  const winnersText = document.querySelector(".winnersText");
 
   const renderBoard = () => {
     while (container.hasChildNodes()) {
@@ -55,7 +56,7 @@ const gameBoard = (() => {
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[2] === winnerSymbol
     ) {
-      alert(`${winner} wins!!`);
+      winnersText.innerHTML = `${winner} wins!!`;
     } else if (
       scoreBoard[0] === winnerSymbol &&
       scoreBoard[3] === winnerSymbol &&
@@ -103,6 +104,7 @@ const gameBoard = (() => {
 
   const resetBoard = () => {
     scoreBoard = Array(9).fill("?");
+    winnersText.innerHTML = "";
     renderBoard();
   };
 
