@@ -45,7 +45,7 @@ const gameBoard = (() => {
       renderBoard();
       checkforWinner();
       updatePlayer();
-      whosTurnText.innerHTML = `${activePlayer.symbol}'s turn`;
+      whosTurnText.innerHTML = `${activePlayer.name}'s turn`;
     } else return;
   }
 
@@ -63,76 +63,78 @@ const gameBoard = (() => {
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[2] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[0] === winnerSymbol &&
       scoreBoard[3] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[0] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[7] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[2] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[2] === winnerSymbol &&
       scoreBoard[5] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[3] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[5] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[6] === winnerSymbol &&
       scoreBoard[7] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
         (winnersText.innerHTML = `${winner} wins!`);
     } else if (scoreBoard.every((score) => score !== "?")) {
-      (whosTurnText.outerHTML = ""),
-        container.classList.add("unavailable"),
-        (winnersText.innerHTML = `It's a draw`);
+      container.classList.add("unavailable"),
+        whosTurnText.classList.add("hidden"),
+        (winnersText.innerHTML = `It's a draw!`);
     }
   };
 
   const resetBoard = () => {
+    whosTurnText.classList.remove("hidden");
     scoreBoard = Array(9).fill("?");
     winnersText.innerHTML = "";
-    whosTurnText.innerHTML = "";
+    container.classList.remove("unavailable");
+    whosTurnText.innerHTML = `${activePlayer.name}'s turn`;
     renderBoard();
   };
 
@@ -153,6 +155,7 @@ form.addEventListener("submit", () => {
   player2.changePlayerName(player2, playerTwoInput);
   modal.classList.add("hidden");
   form.reset();
+  gameBoard.resetBoard();
 });
 
 form.onsubmit = (event) => {

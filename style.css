@@ -84,11 +84,23 @@ form{
 
 
 .winnersText{
-
   display: flex;
   width: max-content;
   margin: auto;
 }
 
+
 .unavailable{
   pointer-events: none;}
+
+
+  .button-div{
+    margin-bottom: 15px;
+  }
+
+  h3{
+    width: max-content;
+    margin: auto;
+    text-align: center;
+    white-space: nowrap;
+  }
