@@ -56,49 +56,49 @@ const gameBoard = (() => {
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[2] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     } else if (
       scoreBoard[0] === winnerSymbol &&
       scoreBoard[3] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     } else if (
       scoreBoard[0] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     } else if (
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[7] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     } else if (
       scoreBoard[2] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     } else if (
       scoreBoard[2] === winnerSymbol &&
       scoreBoard[5] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     } else if (
       scoreBoard[3] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[5] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     } else if (
       scoreBoard[6] === winnerSymbol &&
       scoreBoard[7] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!!`;
+      winnersText.innerHTML = `${winner} wins!`;
     }
   };
 

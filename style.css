@@ -38,7 +38,7 @@
   justify-items: center;
   justify-content: space-between;
   gap: 15px;
-  /* border: 1px solid black; */
+  margin-bottom: 75px;
 }
 
 .square{
@@ -80,4 +80,12 @@ form{
 
 .hidden{
   display: none;
+}
+
+
+.winnersText{
+
+  display: flex;
+  width: max-content;
+  margin: auto;
 }
