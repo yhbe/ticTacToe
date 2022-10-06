@@ -89,3 +89,6 @@ form{
   width: max-content;
   margin: auto;
 }
+
+.unavailable{
+  pointer-events: none;}

@@ -5,6 +5,11 @@ const playerFactory = (name, symbol) => {
   const changePlayerName = (player, name) => {
     player.name = name;
   };
+  const whoPlayedLast = (player) => {
+    if (player == player1) {
+      player = player2;
+    } else player2;
+  };
   return { name, symbol, sayHello, changePlayerName };
 };
 
@@ -17,6 +22,7 @@ const gameBoard = (() => {
   let scoreBoard = Array(9).fill("?");
   const container = document.querySelector(".container");
   const winnersText = document.querySelector(".winnersText");
+  let whosTurnText = document.querySelector("h3");
 
   const renderBoard = () => {
     while (container.hasChildNodes()) {
@@ -39,6 +45,7 @@ const gameBoard = (() => {
       renderBoard();
       checkforWinner();
       updatePlayer();
+      whosTurnText.innerHTML = `${activePlayer.symbol}'s turn`;
     } else return;
   }
 
@@ -56,57 +63,76 @@ const gameBoard = (() => {
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[2] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[0] === winnerSymbol &&
       scoreBoard[3] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[0] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[1] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[7] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[2] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[6] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[2] === winnerSymbol &&
       scoreBoard[5] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[3] === winnerSymbol &&
       scoreBoard[4] === winnerSymbol &&
       scoreBoard[5] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (
       scoreBoard[6] === winnerSymbol &&
       scoreBoard[7] === winnerSymbol &&
       scoreBoard[8] === winnerSymbol
     ) {
-      winnersText.innerHTML = `${winner} wins!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `${winner} wins!`);
     } else if (scoreBoard.every((score) => score !== "?")) {
-      winnersText.innerHTML = `It's a draw!`;
+      (whosTurnText.outerHTML = ""),
+        container.classList.add("unavailable"),
+        (winnersText.innerHTML = `It's a draw`);
     }
   };
 
   const resetBoard = () => {
     scoreBoard = Array(9).fill("?");
     winnersText.innerHTML = "";
+    whosTurnText.innerHTML = "";
     renderBoard();
   };
 
