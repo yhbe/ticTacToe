@@ -2,7 +2,10 @@ const playerFactory = (name, symbol) => {
   const sayHello = () => {
     return `Hello, My name is ${name}, and this is my symbol ${symbol} `;
   };
-  return { name, symbol, sayHello };
+  const changePlayerName = (player, name) => {
+    return (player.name = name);
+  };
+  return { name, symbol, sayHello, changePlayerName };
 };
 
 const player1 = playerFactory("P1", "X");
@@ -114,8 +117,14 @@ resetBoardButton.addEventListener("click", gameBoard.resetBoard);
 const form = document.querySelector("form");
 const modal = document.querySelector(".modal");
 form.addEventListener("submit", () => {
+  const playerOneInput = document.querySelector("#playerOneName").value;
+  player1.changePlayerName(player1, playerOneInput);
+  const playerTwoInput = document.querySelector("#playerTwoName").value;
+  player2.changePlayerName(player2, playerTwoInput);
   modal.classList.add("hidden");
+  form.reset();
 });
+
 form.onsubmit = (event) => {
   event.preventDefault();
 };
